@@ -1,7 +1,7 @@
 platform: Android
 buildPlatform:
-displayName: "Android Build"
-description: "Build your application for the architectures specified in your project. This step creates an unsigned apk or aab file."
+displayName: "Flutter Build"
+description: "Build your Flutter project with Flutter SDK."
 inputs:
 - key: "AC_REPOSITORY_DIR"
   defaultValue: "$AC_REPOSITORY_DIR"
