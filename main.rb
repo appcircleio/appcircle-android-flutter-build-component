@@ -45,7 +45,7 @@ else
     project_root_path = File.expand_path(File.join(ac_repo_path, ac_project_path))
 end
 
-puts "PATH=#{ENV["PATH"]}
+puts "PATH=#{ENV["PATH"]}"
 run_command("cd #{project_root_path} && flutter build #{build_type} #{ac_flutter_build_extra_args} --#{ac_flutter_build_mode}")
 
 build_outputs_folder = "#{ac_repo_path}/build/app/outputs"
