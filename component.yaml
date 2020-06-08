@@ -20,7 +20,6 @@ inputs:
   description: "Specifies Flutter build mode. Defaults to: release"
   helpText:
 - key: "AC_FLUTTER_BUILD_EXTRA_ARGS"
-  defaultValue: "$AC_FLUTTER_BUILD_EXTRA_ARGS"
   isRequired: false
   title: Custom Build Arguments
   description: "Add custom build arguments. For example: --split-per-abi"
