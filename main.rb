@@ -7,12 +7,11 @@ def get_env_variable(key)
 	return (ENV[key] == nil || ENV[key] == "") ? nil : ENV[key]
 end
 
-ac_repo_path = get_env_variable("AC_REPOSITORY_DIR") || abort('Missing repo path.')
+ac_flutter_project_dir = get_env_variable("AC_FLUTTER_PROJECT_DIR") || abort('Missing Flutter project path.')
 ac_output_type = get_env_variable("AC_OUTPUT_TYPE") || abort('Missing output type.')
 ac_output_folder = get_env_variable("AC_OUTPUT_DIR") || abort('Missing output folder.')
 ac_flutter_build_extra_args = get_env_variable("AC_FLUTTER_BUILD_EXTRA_ARGS") || ""
 ac_flutter_build_mode = get_env_variable("AC_FLUTTER_BUILD_MODE") || "release"
-ac_project_path = get_env_variable("AC_PROJECT_PATH") || "."
 
 def run_command(command)
     puts "@[command] #{command}"
@@ -38,17 +37,10 @@ end
 
 build_type = (ac_output_type == "aab") ? "appbundle" : "apk"
 
-project_root_path = ""
-if Pathname.new("#{ac_project_path}").absolute?
-    project_root_path = ac_project_path
-else
-    project_root_path = File.expand_path(File.join(ac_repo_path, ac_project_path))
-end
-
 puts "PATH=#{ENV["PATH"]}"
-run_command("cd #{project_root_path} && flutter build #{build_type} #{ac_flutter_build_extra_args} --#{ac_flutter_build_mode}")
+run_command("cd #{ac_flutter_project_dir} && flutter build #{build_type} #{ac_flutter_build_extra_args} --#{ac_flutter_build_mode}")
 
-build_outputs_folder = "#{ac_repo_path}/build/app/outputs"
+build_outputs_folder = "#{ac_flutter_project_dir}/build/app/outputs"
 apk_filter_pattern = "#{build_outputs_folder}/apk/***/*.apk"
 aab_filter_pattern = "#{build_outputs_folder}/bundle/***/*.aab"
 

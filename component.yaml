@@ -1,19 +1,13 @@
 platform: Android
 buildPlatform:
-displayName: "Flutter Build"
+displayName: "Flutter Build for Android"
 description: "Build your Flutter project with Flutter SDK."
 inputs:
-- key: "AC_REPOSITORY_DIR"
+- key: "AC_FLUTTER_PROJECT_DIR"
   defaultValue: "$AC_REPOSITORY_DIR"
   isRequired: true
-  title: Repository Path
-  description: "Specifies the cloned repository path."
-- key: "AC_PROJECT_PATH"
-  defaultValue: "$AC_PROJECT_PATH"
-  isRequired: false
-  title: Project Path
-  description: "Specifies the project path. Defaults to: ./"
-  helpText:
+  title: Flutter Project Directory
+  description: "Specifies the root of your Flutter project where your pubspec.yaml file exist."
 - key: "AC_OUTPUT_TYPE"
   defaultValue: "$AC_OUTPUT_TYPE"
   isRequired: true
