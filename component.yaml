@@ -1,5 +1,5 @@
 platform: Android
-buildPlatform:
+buildPlatform: Flutter
 displayName: "Flutter Build for Android"
 description: "Build your Flutter project with Flutter SDK."
 inputs:
