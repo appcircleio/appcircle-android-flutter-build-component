@@ -1,6 +1,6 @@
 # Appcircle Flutter Build for Android
 
-Build your Flutter project with [Flutter SDK](https://github.com/flutter/flutter).
+This component builds your Flutter project for Android with the [Flutter SDK](https://github.com/flutter/flutter).
 
 Required Input Variables
 - `$AC_FLUTTER_PROJECT_DIR`: The root directory of your Flutter project where pubspec.yaml file exist.
