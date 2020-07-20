@@ -14,7 +14,7 @@ ac_flutter_build_extra_args = get_env_variable("AC_FLUTTER_BUILD_EXTRA_ARGS") ||
 ac_flutter_build_mode = get_env_variable("AC_FLUTTER_BUILD_MODE") || "release"
 
 def run_command(command)
-    puts "@[command] #{command}"
+    puts "@@[command] #{command}"
     status = nil
     stdout_str = nil
     stderr_str = nil
