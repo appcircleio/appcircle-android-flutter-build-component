@@ -43,10 +43,12 @@ run_command("cd #{ac_flutter_project_dir} && flutter build #{build_type} #{ac_fl
 build_outputs_folder = "#{ac_flutter_project_dir}/build/app/outputs"
 apk_filter_pattern = "#{build_outputs_folder}/apk/***/*.apk"
 aab_filter_pattern = "#{build_outputs_folder}/bundle/***/*.aab"
+flutter_apk_filter_pattern = "#{build_outputs_folder}/flutter-apk/**/app-*.apk"
 
-puts "Filtering artifacts: #{apk_filter_pattern}, #{aab_filter_pattern}"
+puts "Filtering artifacts: #{apk_filter_pattern}\n, #{flutter_apk_filter_pattern}\n, #{aab_filter_pattern}\n"
 
 apks = Dir.glob("#{apk_filter_pattern}")
+apks += Dir.glob("#{flutter_apk_filter_pattern}")
 aabs = Dir.glob("#{aab_filter_pattern}")
 
 puts "Copying artifacts to output folder..."
