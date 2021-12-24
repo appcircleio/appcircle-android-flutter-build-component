@@ -15,24 +15,9 @@ ac_flutter_build_mode = get_env_variable("AC_FLUTTER_BUILD_MODE") || "release"
 
 def run_command(command)
     puts "@@[command] #{command}"
-    status = nil
-    stdout_str = nil
-    stderr_str = nil
-
-    Open3.popen3(command) do |stdin, stdout, stderr, wait_thr|
-        stdout.each_line do |line|
-            puts line
-        end
-        stdout_str = stdout.read
-        stderr_str = stderr.read
-        status = wait_thr.value
+    unless system(command)
+      exit $?.exitstatus
     end
-
-    unless status.success?
-        puts stderr_str
-        raise stderr_str
-    end
-    return stdout_str
 end
 
 build_type = (ac_output_type == "aab") ? "appbundle" : "apk"
