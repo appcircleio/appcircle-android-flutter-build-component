@@ -13,3 +13,14 @@ Optional Input Variables
 Output Variables
 - `$AC_APK_PATH`: Path for the generated .apk file
 - `$AC_AAB_PATH`: Path for the generated .aab (Android App Bundle) file
+
+## Running tests
+
+Requires the [RSpec](https://rspec.info) gem and the Ruby standard library (Coverage, Open3). No Gemfile or Bundler needed.
+
+```bash
+gem install rspec   # once
+ruby test/test_main.rb
+```
+
+Tests never execute the real Flutter toolchain: subprocess tests run `main.rb` against a fake `flutter` on `PATH` inside a temporary directory. A coverage report is printed at the end of each run.
